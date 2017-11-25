@@ -2,39 +2,39 @@ from django.db import models
 from django.utils import timezone
 from django.core.validators import MaxValueValidator
 
-class Materia(models.Model):
-    Nombre_materia = models.CharField(max_length=200)
+class Menus(models.Model):
+    Nombre_menu = models.CharField(max_length=200)
     Descripcion =models.CharField(max_length=200)
 
     def __unicode__(self):
-        return self.Nombre_materia
+        return self.Nombre_menu
 
     def __str__(self):
-        return self.Nombre_materia
+        return self.Nombre_menu
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"id": self.id})
 
-class Grados(models.Model):
-    Nombre_Grado = models.CharField(max_length=200)
-    Materias = models.ForeignKey(Materia,related_name ='Materia')
+class Platos(models.Model):
+    Nombre_Plato = models.CharField(max_length=200)
+    Menuss = models.ForeignKey(Menus,related_name ='Menus')
 
 
     def __unicode__(self):
-        return self.Nombre_Grado
+        return self.Nombre_Plato
 
     def __str__(self):
-        return self.Nombre_Grado
+        return self.Nombre_Plato
 
     def get_absolute_url(self):
         return reverse("detail", kwargs={"id": self.id})
 
-class Alumno(models.Model):
+class Empleado(models.Model):
     user = models.ForeignKey('auth.User')
     Nombre_Completo = models.CharField(max_length=200)
     Direccion =models.CharField(max_length=200)
-    Anio_nacimiento = models.DateTimeField(auto_now=False, auto_now_add=False)
-    Grado = models.ForeignKey(Grados,related_name ='grados')
+    Fecha= models.DateTimeField(auto_now=False, auto_now_add=False)
+    Cliente = models.ForeignKey(Platos,related_name ='clientes')
     created_date = models.DateTimeField(
             default=timezone.now)
 

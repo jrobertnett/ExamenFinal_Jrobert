@@ -8,6 +8,6 @@ urlpatterns = [
     url(r'^admin/', admin.site.urls),
     url(r'^$', post_views.lista, name ="lista"),
     url(r'^nuevo/', post_views.nuevo, name ="nuevo"),
-    url(r'^grado/', post_views.nuevoG, name ="nuevoU"),
-    url(r'^materia/', post_views.Materia, name ="grado"),
+    url(r'^plato/', post_views.nuevoP, name ="nuevoP"),
+    url(r'^menus/', post_views.Menus, name ="plato"),
 ]

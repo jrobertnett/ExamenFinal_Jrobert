@@ -1,20 +1,20 @@
 from django import forms
-from .models import Alumno
-from .models import Grados
-from .models import Materia
+from .models import Empleado
+from .models import Platos
+from .models import Menus
 from django.forms import ModelForm
 
-class MateriaForm(forms.ModelForm):
+class MenusForm(forms.ModelForm):
     class Meta:
-        model = Materia
-        fields = ['Nombre_materia','Descripcion']
+        model = Menus
+        fields = ['Nombre_menu','Descripcion']
 
-class GradoForm(forms.ModelForm):
+class PlatoForm(forms.ModelForm):
     class Meta:
-        model = Grados
-        fields = ['Nombre_Grado','Materias']
+        model = Platos
+        fields = ['Nombre_Plato','Menuss']
 
-class AlumnoForm(ModelForm):
+class EmpleadoForm(ModelForm):
     class Meta:
-        model = Alumno
-        fields = ['user', 'Nombre_Completo', 'Direccion', 'Anio_nacimiento','Grado','created_date']
+        model = Empleado
+        fields = ['user', 'Nombre_Completo', 'Direccion', 'Fecha','Cliente','created_date']

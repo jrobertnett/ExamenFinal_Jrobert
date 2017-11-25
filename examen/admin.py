@@ -1,35 +1,35 @@
 from django.contrib import admin
-from examen.models import Grados
-from examen.models import Alumno
-from examen.models import Materia
+from examen.models import Platos
+from examen.models import Empleado
+from examen.models import Menus
 
-class GradosModelAdmin(admin.ModelAdmin):
-    list_display= ["Nombre_Grado","Materias"]
-    list_display_links = ["Materias"]
-    list_filter = ["Materias"]
-    list_editable = ["Nombre_Grado"]
-    search_fields = ["Materias"]
+class PlatosModelAdmin(admin.ModelAdmin):
+    list_display= ["Nombre_Plato","Menuss"]
+    list_display_links = ["Menuss"]
+    list_filter = ["Menuss"]
+    list_editable = ["Nombre_Plato"]
+    search_fields = ["Menuss"]
     class Meta:
-        model = Grados
+        model = Platos
 
-class AlumnoModelAdmin(admin.ModelAdmin):
-    list_display= ["user","Nombre_Completo","Direccion","Anio_nacimiento","Grado","created_date"]
+class EmpleadoModelAdmin(admin.ModelAdmin):
+    list_display= ["user","Nombre_Completo","Direccion","Fecha","Cliente","created_date"]
     list_display_links = ["user"]
     list_filter = ["user"]
     list_editable = ["Nombre_Completo"]
     search_fields = ["user"]
     class Meta:
-        model = Alumno
+        model = Empleado
 
-class MateriaModelAdmin(admin.ModelAdmin):
-    list_display= ["Nombre_materia","Descripcion"]
+class MenusModelAdmin(admin.ModelAdmin):
+    list_display= ["Nombre_menu","Descripcion"]
     list_display_links = ["Descripcion"]
     list_filter = ["Descripcion"]
-    list_editable = ["Nombre_materia"]
+    list_editable = ["Nombre_menu"]
     search_fields = ["Descripcion"]
     class Meta:
-        model = Materia
+        model = Menus
 
-admin.site.register(Grados, GradosModelAdmin)
-admin.site.register(Alumno,AlumnoModelAdmin)
-admin.site.register(Materia,MateriaModelAdmin)
+admin.site.register(Platos, PlatosModelAdmin)
+admin.site.register(Empleado,EmpleadoModelAdmin)
+admin.site.register(Menus,MenusModelAdmin)
